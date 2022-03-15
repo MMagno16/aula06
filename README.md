@@ -1,7 +1,9 @@
 # AULA 06
 IMERSÃO DEV_ DA ALURA - [AULA/06](https://imersao.dev/aulas/aula06-objetos-tabelas-classificacao)
 
-Conteúdo detalhado desta aula:
+## Conteúdo detalhado desta aula:
+
+
 • Remover o código estático do HTML; 
 
 • Criar um objeto no Javascript para cada jogador;
