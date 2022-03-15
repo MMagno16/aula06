@@ -1,0 +1,67 @@
+* {
+    text-align: center;
+  }
+  
+  body {
+    font-family: "Roboto Mono", monospace;
+    min-height: 600px;
+    background-image: url("https://st4.depositphotos.com/1001599/39056/v/1600/depositphotos_390563906-stock-illustration-play-cards-abstract-concept-vector.jpg");
+    background-color: #637085;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .page-title {
+    color: #637085;
+    margin: 0 0 5px;
+  }
+  
+  .page-subtitle {
+    margin-top: 200px;
+    color: #637085;
+    margin-top: 5px;
+  }
+  
+  .page-logo {
+    width: 200px;
+  }
+  
+  .alura-logo {
+    width: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  table {
+    margin-top: 60px;
+    border: 5px solid black;
+    border-collapse: collapse;
+  }
+  
+  h1 {
+    margin-top: 40px;
+    color: black;
+    background: #e7daf2;
+  }
+  
+  th,
+  tr,
+  td {
+    border: solid 4px black;
+    color: black;
+  }
+  
+  .text {
+    color: black;
+    margin-top: 100px;
+    background: #e7daf2;
+  }
+  
