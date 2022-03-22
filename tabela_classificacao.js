@@ -1,71 +1,159 @@
-//           chave. valor.
-var mari = { nome: "Mari", vitorias: 1, empates: 1, derrotas: 01, pontos: 0 };
-var vitao = {
-    nome: "Vitão",
-    vitorias: 3,
-    empates: 1,
-    derrotas: 2,
-    pontos: 0
-};
-
-function calculaPontos(jogador) {
-    var pontos = jogador.vitorias * 3 + jogador.empates;
-    return pontos;
-}
-
-mari.pontos = calculaPontos(mari)
-vitao.pontos = calculaPontos(vitao)
-
-var jogadores = [mari, vitao];
-
-function exibeJogadoresNaTela(jogadores) {
-    var elemento = "";
-    for (var i = 0; i < jogadores.length; i++) {
-        elemento += "<tr><td>" + jogadores[i].nome + "</td>";
-        elemento += "<td>" + jogadores[i].vitorias + "</td>";
-        elemento += "<td>" + jogadores[i].empates + "</td>";
-        elemento += "<td>" + jogadores[i].derrotas + "</td>";
-        elemento += "<td>" + jogadores[i].pontos + "</td>";
-        elemento +=
-            "<td><button onClick='adicionarVitoria(" +
-            indice +
-            ")'>Vitória</button></td>";
-        elemento +=
-            "<td><button onClick='adicionarEmpate(" +
-            indice +
-            ")'>Empate</button></td>";
-        elemento +=
-            "<td><button onClick='adicionarDerrota(" +
-            indice +
-            ")'>Derrota</button></td>";
-        elemento += "</tr>";
+var tab = document.getElementById("tabela");
+var tabelas = document.getElementById("table_header");
+put_table();
+var array = [];
+var derrotas = 0;
+var empates = 0;
+class player {
+    constructor(nome, foto) {
+        this.nome = nome;
+        this.vitorias = 0;
+        this.empates = empates;
+        this.derrotas = derrotas;
+        this.pontos = 0;
+        this.foto = foto;
     }
-    var tabelaJogadores = document.getElementById("tabelaJogadores");
-    tabelaJogadores.innerHTML = elemento;
 }
 
-function pontos(i) {
-    var pontos = jogadores[i].vitorias * 3 + jogadores[i].empates;
-    jogadores[i].pontos = pontos;
+function display() {
+  let element = "";
+  for (var i = 0; i < array.length; i++) {
+    element += "<tr><td>" + array[i].nome + "</td>";
+    element += "<td>" + array[i].vitorias + "</td>";
+    element += "<td>" + array[i].empates + "</td>";
+    element += "<td>" + array[i].derrotas + "</td>";
+    element += "<td>" + array[i].pontos + "</td>";
+    element +=
+      "<td>" +
+      "<button style='width:100px;height:30px;' onClick='adicionarVitoria(" +
+      i +
+      ")'>Vitória</button>" +
+      "<div class='divider'></div>";
+    element +=
+      "<button style='width:100px;height:30px;' onClick='adicionarEmpate(" +
+      i +
+      ")'>Empate</button>" +
+      "<div class='divider'></div>";
+    element +=
+      "<button style='width:100px;height:30px;' onClick='adicionarDerrota(" +
+      i +
+      ")'>Derrota</button>" +
+      "</td>";
+    element +=
+      "<td><img width='300' height='234' src=" +
+      array[array.length - 1].foto +
+      "></td>";
+    element += "</tr>";
+  }
+  tabelas.innerHTML = "";
+  put_table();
+  tabelas.innerHTML += element;
+  document.getElementById("1").value = "";
+  document.getElementById("2").value = "";
 }
 
-exibeJogadoresNaTela(jogadores);
-
-function adicionarVitoria(indice) {
-    var jogador = jogadores[indice];
-    jogador.vitorias++;
-    jogador.pontos = calculaPontos(jogador);
-    exibeJogadoresNaTela(jogadores);
-}
-function adicionarEmpate(indice) {
-    var jogador = jogadores[indice];
-    jogador.empates++;
-    jogador.pontos = calculaPontos(jogador);
-    exibeJogadoresNaTela(jogadores);
+function post_table() {
+  array.push(
+    new player(
+      document.getElementById("1").value,
+      document.getElementById("2").value
+    )
+  );
+  display();
 }
 
-function adicionarDerrota(indice) {
-    var jogador = jogadores[indice];
-    jogador.derrotas++;
-    exibeJogadoresNaTela(jogadores);
+function put_table() {
+  let header = "<tr>";
+  header += "<th>Nome</th>";
+  header += "<th>Vitórias</th>";
+  header += "<th>Empates</th>";
+  header += "<th>Derrotas</th>";
+  header += "<th>Pontos</th>";
+  header += "<th>Ações</th>";
+  header += "<th>Foto</th>";
+  header += "/<tr>";
+  tabelas.innerHTML = header;
+  let row = tabelas.insertRow(1);
+  let nome = row.insertCell(0);
+  let vitorias = row.insertCell(1);
+  let empates = row.insertCell(2);
+  let derrotas = row.insertCell(3);
+  let pontos = row.insertCell(4);
+  let act = row.insertCell(5);
+  let foto = row.insertCell(6);
+  nome.innerHTML = "<input type='text' id='1'>";
+  vitorias.innerHTML = "0";
+  empates.innerHTML = "0";
+  derrotas.innerHTML = "0";
+  pontos.innerHTML = "0";
+  act.innerHTML =
+    "<button style='width:100px;height:30px;' onClick='adicionarVitoria(-1)'>Vitória</button>" +
+    "<div class='divider'></div>" +
+    "<button style='width:100px;height:30px;' onClick='adicionarEmpate(-1)'>Empate</button>" +
+    "<div class='divider'></div>" +
+    "<button style='width:100px;height:30px;' onClick='adicionarDerrota(-1)'>Derrota</button>";
+
+  foto.innerHTML = "URL: <input type='text' id=2>";
 }
+
+function ponto(){
+  for(var i=0; i<array.length; i++){
+    array[i].pontos = array[i].vitorias - array[i].derrotas + array[i].empates * 0.5;
+  }
+}
+
+function adicionarVitoria(i) {
+  if (i == -1) {
+    return;
+  }
+  derrotas++;
+  array[i].vitorias++;
+
+  for (var j = 0; j < array.length; j++) {
+    if (j == i){
+      continue;
+    }else {
+      array[j].derrotas = derrotas-array[j].vitorias;
+    }
+  }
+  ponto();
+  display();
+}
+
+function adicionarEmpate(i){
+  if(i==-1){
+    return;
+  }
+  empates++;
+  for(var j=0; j<array.length;j++){
+    array[j].empates = empates;
+  }
+  ponto();
+  display();
+}
+
+function adicionarDerrota(i){
+   if (i == -1) {
+    return;
+  }
+  derrotas++;
+
+  for (var j = 0; j < array.length; j++) {
+      array[j].derrotas = derrotas-array[j].vitorias;
+  }
+  ponto();
+  display();
+}
+
+function zerar(){
+  derrotas =0;
+  empates =0;
+  for(var i=0; i <array.length; i++){
+    array[i].vitorias = 0;
+    array[i].derrotas = 0;
+    array[i].empates = 0;
+    array[i].pontos =0;
+  }
+  display();
+}
+

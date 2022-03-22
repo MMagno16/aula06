@@ -1,61 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-
-    <head>
-        <title>
-            Imersão Dev - Aula 06
-        </title>
-    </head>
-
+  <title>
+    Imersão Dev - Aula 06
+  </title>
+</head>
 <body>
-    <h1>Tabela Classificatória</h1>
     <link rel="stylesheet" href="style.css">
-    <table style="width:100%">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Vitórias</th>
-                <th>Empates</th>
-                <th>Derrotas</th>
-                <th>Pontos</th>
-                <th colspan="3">Ações</th>
-            </tr>
-        </thead>
-        <tbody id="tabelaJogadores">
-            <tr>
-                <td>Mari</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button onClick="adicionarVitoria()">Vitória</button></td>
-                <td><button onClick="adicionarEmpate()">Empate</button></td>
-                <td><button onClick="adicionarDerrota()">Derrota</button></td>
-            </tr>
-            <tr>
-                <td>Vitão</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button onClick="adicionarVitoria()">Vitória</button></td>
-                <td><button onClick="adicionarEmpate()">Empate</button></td>
-                <td><button onClick="adicionarDerrota()">Derrota</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <h2 class="text">
-        <b>
-            Vitória = 3 pontos <br>
-            Empate = 1 ponto <br>
-            Derrota = 0 ponto <br>
-        </b>
-    </h2>
-    <button onclick="zerarPontos()">Zerar Pontos</button>
-    </head>
-    <script scr="./tabela_classificacao.js"></script>
-    </body>
-</html >
+  <h1>Tabela Classificatória</h1>
+  <button onclick="post_table()">colocar novo jogador</button>
+  <button onclick="zerar()">zerar</button>
+  <br><br>
+  <table style="width:100%" id="table_header">
+  </table>
+</body>
+<script src="./tabela_classificacao.js"></script>
+</html>

@@ -1,67 +1,70 @@
 * {
-    text-align: center;
-  }
-  
-  body {
-    font-family: "Roboto Mono", monospace;
-    min-height: 600px;
-    background-image: url("https://st4.depositphotos.com/1001599/39056/v/1600/depositphotos_390563906-stock-illustration-play-cards-abstract-concept-vector.jpg");
-    background-color: #637085;
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  .container {
-    text-align: center;
-    padding: 20px;
-    height: 100vh;
-  }
-  
-  .page-title {
-    color: #637085;
-    margin: 0 0 5px;
-  }
-  
-  .page-subtitle {
-    margin-top: 200px;
-    color: #637085;
-    margin-top: 5px;
-  }
-  
-  .page-logo {
-    width: 200px;
-  }
-  
-  .alura-logo {
-    width: 40px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
-  table {
-    margin-top: 60px;
-    border: 5px solid black;
-    border-collapse: collapse;
-  }
-  
-  h1 {
-    margin-top: 40px;
-    color: black;
-    background: #e7daf2;
-  }
-  
-  th,
-  tr,
-  td {
-    border: solid 4px black;
-    color: black;
-  }
-  
-  .text {
-    color: black;
-    margin-top: 100px;
-    background: #e7daf2;
-  }
-  
+  text-align: center;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  min-height: 400px;
+  background-image: url("https://i.pinimg.com/originals/74/3f/e7/743fe7d5997c7a64608b55e0ce9e83c4.gif");
+  background-color: #111;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 40px;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+}
+
+.page-title {
+  color: #ffffff;
+  margin-top: 30px;
+}
+
+.page-subtitle {
+  color: #ffffff;
+  margin-top: 30px;
+}
+
+.page-logo {
+  width: 200px;
+}
+
+.alura-logo {
+  width: 40px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+table {
+  border: 2px solid white;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+h1 {
+  color: white;
+}
+
+th,
+tr,
+td {
+  border: solid 1px white;
+  color: white;
+}
+
+input {
+  border: transparent;
+  background-color: white;
+  color: black;
+}
+
+.divider {
+  width: 10px;
+  height: auto;
+  display: inline-block;
+}
